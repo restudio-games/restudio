@@ -1,811 +1,1635 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Restudio — Software Laboratories</title>
-  <link rel="icon" href="https://i.postimg.cc/66MLbbg8/restudio-profile.png" type="image/png">
-  <link rel="icon" type="image/png" href="https://i.postimg.cc/JzYGnt17/restudio-profile.png">
-
-  <!-- modern sans-serif font: Ubuntu + Inter for fallback -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@100;300;400;500;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome 6 (free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #f6f6f6;
-      min-height: 100vh;
-      color: #202122;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      display: flex;
-      flex-direction: column;
-      line-height: 1.6;
-    }
-
-    .main-content {
-      flex: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 30px 28px 50px;
-      width: 100%;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ----- HEADER (BLACK) ----- */
-    header {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px;
-      background: #000000;
-      border-bottom: 1px solid #2a2a2a;
-      z-index: 30;
-      flex-shrink: 0;
-    }
-
-    .top-logo img {
-      height: 40px;
-      width: auto;
-      display: block;
-      filter: brightness(1.1);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav button {
-      background: none;
-      border: none;
-      color: #e5e7eb;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
-      letter-spacing: -0.01em;
-      padding: 6px 0;
-      border-bottom: 2px solid transparent;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* أيقونة Home باللون الأبيض */
-    .nav button .fa-home {
-      color: #ffffff;
-      font-size: 1rem;
-      transition: color 0.2s;
-    }
-
-    /* أيقونة About باللون الوردي */
-    .nav button .fa-heart {
-      color: #ff6b8a;
-      font-size: 1rem;
-      transition: color 0.2s;
-    }
-
-    .nav button:hover {
-      color: #50B854;
-      border-bottom-color: #50B854;
-    }
-
-    .nav button:hover .fa-home {
-      color: #50B854;
-    }
-
-    .nav button:hover .fa-heart {
-      color: #ff4d7a;
-    }
-
-    /* ----- HERO with BANNER BACKGROUND ----- */
-    .hero-section {
-      position: relative;
-      text-align: center;
-      padding: 80px 20px 70px;
-      border-radius: 16px;
-      margin-bottom: 48px;
-      overflow: hidden;
-      min-height: 320px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #e2e2e2;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    }
-
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background-repeat: repeat;
-      background-position: 50% 50%;
-      background-size: 154px 265px;
-      background-image: conic-gradient(
-          from 0deg at 92.66% 50%,
-          #6a994e 0 120deg,
-          #fff0 0 100%
-        ),
-        conic-gradient(from -60deg at 81.66% 10.25%, #6a994e 0 180deg, #fff0 0 100%),
-        conic-gradient(from -60deg at 66.66% 22.25%, #a7c957 0 120deg, #fff0 0 100%),
-        conic-gradient(from 0deg at 71.66% 43%, #386641 0 120deg, #fff0 0 100%),
-        conic-gradient(from 0deg at 66.66% 45.95%, #386641 0 60deg, #fff0 0 100%),
-        conic-gradient(from 120deg at 25% 91.5%, #a7c957 0 120deg, #fff0 0 100%),
-        conic-gradient(from 180deg at 16% 73.5%, #6a994e 0 120deg, #fff0 0 100%),
-        conic-gradient(from 180deg at 16% 73.5%, #6a994e 0 120deg, #fff0 0 100%),
-        conic-gradient(from 180deg at 16% 73.5%, #6a994e 0 120deg, #fff0 0 100%),
-        conic-gradient(from 180deg at 16% 73.5%, #6a994e 0 120deg, #fff0 0 100%),
-        conic-gradient(
-          from 180deg at 39.5% 65.65%,
-          #386641 0 60deg,
-          #a7c957 0 120deg,
-          #fff0 0 100%
-        ),
-        conic-gradient(
-          from 180deg at 39.5% 65.65%,
-          #386641 0 60deg,
-          #a7c957 0 120deg,
-          #fff0 0 100%
-        ),
-        conic-gradient(
-          from 180deg at 39.5% 65.65%,
-          #386641 0 60deg,
-          #a7c957 0 120deg,
-          #fff0 0 100%
-        ),
-        conic-gradient(
-          from 180deg at 39.5% 65.65%,
-          #386641 0 60deg,
-          #a7c957 0 120deg,
-          #fff0 0 100%
-        ),
-        conic-gradient(
-          from 60deg at 50% 51.5%,
-          #a7c957 0 60deg,
-          #6a994e 0 120deg,
-          #4a8656 0 100%
-        );
-      opacity: 0.35;
-    }
-
-    .hero-section::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 16px;
-    }
-
-    .hero-section > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    .main-title {
-      font-family: 'Ubuntu', sans-serif;
-      font-weight: 100;
-      font-size: 3.8rem;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-      line-height: 1.15;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-
-    .main-title span {
-      color: #b8e6b0;
-      font-weight: 100;
-    }
-
-    .main-tagline {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: rgba(255,255,255,0.92);
-      margin-top: 16px;
-      letter-spacing: 0.3px;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-    }
-
-    /* ----- ABOUT ----- */
-    .about-section {
-      margin-bottom: 48px;
-      scroll-margin-top: 80px;
-      background: #ffffff;
-      padding: 32px 36px;
-      border-radius: 16px;
-      border: 1px solid #e2e2e2;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-    }
-
-    .about-section h2 {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 1.6rem;
-      color: #111827;
-      letter-spacing: -0.01em;
-      margin-bottom: 22px;
-      border-left: 4px solid #50B854;
-      padding-left: 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .about-section h2 i {
-      color: #6699CC;
-      font-size: 24px;
-    }
-
-    .about-section p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #1f2937;
-      font-weight: 400;
-      margin-bottom: 18px;
-      max-width: 720px;
-    }
-
-    .about-section a {
-      color: #1f7a24;
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px dotted rgba(31, 122, 36, 0.3);
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .about-section a:hover {
-      color: #0f4f13;
-      border-bottom-color: #0f4f13;
-    }
-
-    .historical-note-plain {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #1f2937;
-      margin-bottom: 22px;
-      padding: 8px 0 4px;
-      border-bottom: 1px solid #edf2f7;
-      max-width: 720px;
-    }
-
-    .historical-note-plain strong {
-      color: #0b1f0b;
-      font-weight: 600;
-    }
-
-    .historical-note-plain .wiki-link-plain {
-      color: #1f7a24;
-      text-decoration: none;
-      font-weight: 500;
-      margin-left: 6px;
-      border-bottom: 1px dotted rgba(31, 122, 36, 0.3);
-    }
-
-    .historical-note-plain .wiki-link-plain:hover {
-      border-bottom-color: #0f4f13;
-    }
-
-    .storypedia-or {
-      color: #6b7280;
-      font-weight: 400;
-      margin: 0 8px;
-      font-size: 0.95rem;
-    }
-
-    .storypedia-link {
-      color: #1f7a24;
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px dotted rgba(31, 122, 36, 0.3);
-    }
-
-    .storypedia-link:hover {
-      border-bottom-color: #0f4f13;
-    }
-
-    .simple-list {
-      list-style: none;
-      margin: 24px 0 18px;
-      padding-left: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 32px;
-    }
-
-    .simple-list li {
-      font-size: 0.95rem;
-      color: #1f2937;
-      font-weight: 400;
-      position: relative;
-      padding-left: 20px;
-    }
-
-    .simple-list li::before {
-      content: "▹";
-      color: #50B854;
-      position: absolute;
-      left: 0;
-      font-weight: 600;
-    }
-
-    .acceptance-note {
-      background: #eef2ff;
-      padding: 12px 20px;
-      border-radius: 60px;
-      margin-top: 30px;
-      border: 1px solid #cbd5e1;
-      text-align: center;
-      color: #1e3a5f;
-      font-size: 0.95rem;
-    }
-
-    .acceptance-note i {
-      color: #6699CC;
-      margin-right: 8px;
-    }
-
-    /* ----- FOOTER (محسّن للجوال) ----- */
-    footer {
-      width: 100%;
-      background: #ffffff;
-      border-top: 1px solid #e5e7eb;
-      padding: 30px 20px 16px;
-      font-family: 'Inter', sans-serif;
-      flex-shrink: 0;
-      margin-top: auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-main {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 24px 16px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid #eef2f6;
-      padding-bottom: 24px;
-    }
-
-    .footer-section h4 {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 10px;
-      border-left: 2px solid #6b7280;
-      padding-left: 8px;
-    }
-
-    .footer-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .footer-section li {
-      margin-bottom: 6px;
-    }
-
-    .footer-section a {
-      color: #6699CC;
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 400;
-      transition: color 0.2s;
-      word-break: break-word;
-      display: inline-block;
-      padding: 2px 0;
-    }
-
-    .footer-section a:hover {
-      color: #4a7fb3;
-      text-decoration: underline;
-    }
-
-    /* Social icons */
-    .footer-social {
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      margin: 12px 0 14px;
-      flex-wrap: wrap;
-    }
-
-    .footer-social a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #f1f5f9;
-      color: #1f2937;
-      font-size: 18px;
-      text-decoration: none;
-      border: 1px solid #e5e7eb;
-      transition: none;
-    }
-
-    .footer-social a:hover {
-      background: #f1f5f9;
-      color: #1f2937;
-      border-color: #e5e7eb;
-      transform: none;
-      box-shadow: none;
-    }
-
-    .footer-social a i {
-      line-height: 1;
-    }
-
-    .footer-support-row {
-      text-align: center;
-      margin-bottom: 10px;
-      padding-top: 2px;
-    }
-
-    .footer-support-link {
-      font-size: 0.8rem;
-      color: #374151;
-      text-decoration: none;
-      font-weight: 400;
-      transition: color 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      border-bottom: 1px solid transparent;
-    }
-
-    .footer-support-link:hover {
-      color: #6699CC;
-      border-bottom-color: #6699CC;
-    }
-
-    .footer-copy {
-      text-align: center;
-      font-size: 0.65rem;
-      color: #6b7280;
-      letter-spacing: 0.2px;
-      padding-top: 6px;
-      border-top: 1px solid #f1f5f9;
-    }
-
-    /* ===== MEDIA QUERIES للجوال ===== */
-    @media (max-width: 768px) {
-      .footer-main {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px 14px;
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-      }
-
-      .footer-section h4 {
-        font-size: 0.65rem;
-        margin-bottom: 8px;
-        padding-left: 6px;
-      }
-
-      .footer-section a {
-        font-size: 0.72rem;
-      }
-
-      .footer-social {
-        gap: 20px;
-      }
-
-      .footer-social a {
-        width: 36px;
-        height: 36px;
-        font-size: 16px;
-      }
-
-      .footer-support-link {
-        font-size: 0.75rem;
-      }
-
-      footer {
-        padding: 20px 14px 12px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .footer-main {
-        grid-template-columns: 1fr 1fr;
-        gap: 16px 12px;
-        padding-bottom: 16px;
-        margin-bottom: 16px;
-      }
-
-      .footer-section h4 {
-        font-size: 0.6rem;
-        margin-bottom: 6px;
-        padding-left: 5px;
-        border-left-width: 2px;
-      }
-
-      .footer-section a {
-        font-size: 0.68rem;
-        padding: 1px 0;
-      }
-
-      .footer-section li {
-        margin-bottom: 4px;
-      }
-
-      .footer-social {
-        gap: 14px;
-        margin: 8px 0 10px;
-      }
-
-      .footer-social a {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-      }
-
-      .footer-support-link {
-        font-size: 0.7rem;
-        gap: 4px;
-      }
-
-      .footer-copy {
-        font-size: 0.55rem;
-        padding-top: 4px;
-      }
-
-      footer {
-        padding: 16px 10px 10px;
-      }
-    }
-
-    /* للشاشات الصغيرة جداً */
-    @media (max-width: 380px) {
-      .footer-main {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px 8px;
-      }
-
-      .footer-section h4 {
-        font-size: 0.55rem;
-      }
-
-      .footer-section a {
-        font-size: 0.6rem;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .main-title {
-        font-size: 2.6rem;
-      }
-      .hero-section {
-        padding: 60px 20px 50px;
-        min-height: 240px;
-      }
-      header {
-        padding: 0 18px;
-        height: 60px;
-      }
-      .nav {
-        gap: 16px;
-      }
-      .nav button {
-        font-size: 0.85rem;
-      }
-      .main-content {
-        padding: 20px 16px 40px;
-      }
-      .about-section {
-        padding: 24px 20px;
-      }
-      .historical-note-plain, .about-section p {
-        font-size: 0.95rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .main-title {
-        font-size: 2.0rem;
-      }
-      .main-tagline {
-        font-size: 0.95rem;
-      }
-      .about-section h2 {
-        font-size: 1.3rem;
-        padding-left: 12px;
-      }
-      .simple-list li {
-        font-size: 0.85rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Restudio — Software Laboratories</title>
+    <link rel="icon" href="https://i.postimg.cc/66MLbbg8/restudio-profile.png" type="image/png">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/JzYGnt17/restudio-profile.png">
+
+    <!-- modern sans-serif font: Ubuntu + Inter for fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@100;300;400;500;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- MapLibre GL JS -->
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" />
+    <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f6f6f6;
+            min-height: 100vh;
+            color: #202122;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        .main-content {
+            flex: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 28px 50px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ----- HEADER (BLACK) ----- */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            background: #000000;
+            border-bottom: 1px solid #2a2a2a;
+            z-index: 30;
+            flex-shrink: 0;
+        }
+
+        .top-logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+            filter: brightness(1.1);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav button {
+            background: none;
+            border: none;
+            color: #e5e7eb;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s;
+            letter-spacing: -0.01em;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav button .fa-home {
+            color: #ffffff;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav button .fa-heart {
+            color: #ff6b8a;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav button .fa-id-card {
+            color: #50B854;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav button:hover {
+            color: #50B854;
+            border-bottom-color: #50B854;
+        }
+
+        .nav button:hover .fa-home {
+            color: #50B854;
+        }
+
+        .nav button:hover .fa-heart {
+            color: #ff4d7a;
+        }
+
+        .nav button:hover .fa-id-card {
+            color: #ffffff;
+        }
+
+        /* ---- زر التسجيل (تم إزالة جميع تأثيرات HOVER) ---- */
+        .btn-register-card {
+            background: #50B854;
+            border: none;
+            border-radius: 30px;
+            padding: 8px 20px;
+            color: white !important;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            border-bottom: none !important;
+            line-height: 1.4;
+            transition: none; /* إلغاء أي تأثير انتقال */
+        }
+
+        /* منع أي تغيير عند hover أو focus أو active */
+        .btn-register-card:hover,
+        .btn-register-card:focus,
+        .btn-register-card:active {
+            border-bottom: none !important;
+            transform: none !important;
+            box-shadow: none !important;
+            opacity: 1 !important;
+        }
+
+        .btn-register-card .short-text {
+            display: none;
+        }
+
+        /* ---- الأفاتار الدائري في الهيدر ---- */
+        .nav-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            border: 2px solid #50B854;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #2a2a2a;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .nav-avatar:hover {
+            transform: scale(1.05);
+            border-color: #a7c957;
+        }
+
+        .nav-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nav-avatar .fallback-icon {
+            font-size: 1.4rem;
+            color: #e5e7eb;
+        }
+
+        /* ----- HERO with BANNER BACKGROUND ----- */
+        .hero-section {
+            position: relative;
+            text-align: center;
+            padding: 80px 20px 70px;
+            border-radius: 16px;
+            margin-bottom: 48px;
+            overflow: hidden;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e2e2;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-repeat: repeat;
+            background-position: 50% 50%;
+            background-size: 154px 265px;
+            background-image: conic-gradient(
+                    from 0deg at 92.66% 50%,
+                    #6a994e 0 120deg,
+                    #fff0 0 100%
+                ),
+                conic-gradient(from -60deg at 81.66% 10.25%, #6a994e 0 180deg, #fff0 0 100%),
+                conic-gradient(from -60deg at 66.66% 22.25%, #a7c957 0 120deg, #fff0 0 100%),
+                conic-gradient(from 0deg at 71.66% 43%, #386641 0 120deg, #fff0 0 100%),
+                conic-gradient(from 0deg at 66.66% 45.95%, #386641 0 60deg, #fff0 0 100%),
+                conic-gradient(from 120deg at 25% 91.5%, #a7c957 0 120deg, #fff0 0 100%),
+                conic-gradient(from 180deg at 16% 73.5%, #6a994e 0 120deg, #fff0 0 100%),
+                conic-gradient(from 180deg at 16% 73.5%, #6a994e 0 120deg, #fff0 0 100%),
+                conic-gradient(from 180deg at 16% 73.5%, #6a994e 0 120deg, #fff0 0 100%),
+                conic-gradient(from 180deg at 16% 73.5%, #6a994e 0 120deg, #fff0 0 100%),
+                conic-gradient(
+                    from 180deg at 39.5% 65.65%,
+                    #386641 0 60deg,
+                    #a7c957 0 120deg,
+                    #fff0 0 100%
+                ),
+                conic-gradient(
+                    from 180deg at 39.5% 65.65%,
+                    #386641 0 60deg,
+                    #a7c957 0 120deg,
+                    #fff0 0 100%
+                ),
+                conic-gradient(
+                    from 180deg at 39.5% 65.65%,
+                    #386641 0 60deg,
+                    #a7c957 0 120deg,
+                    #fff0 0 100%
+                ),
+                conic-gradient(
+                    from 180deg at 39.5% 65.65%,
+                    #386641 0 60deg,
+                    #a7c957 0 120deg,
+                    #fff0 0 100%
+                ),
+                conic-gradient(
+                    from 60deg at 50% 51.5%,
+                    #a7c957 0 60deg,
+                    #6a994e 0 120deg,
+                    #4a8656 0 100%
+                );
+            opacity: 0.35;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 16px;
+        }
+
+        .hero-section > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-title {
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 100;
+            font-size: 3.8rem;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            line-height: 1.15;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .main-title span {
+            color: #b8e6b0;
+            font-weight: 100;
+        }
+
+        .main-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.92);
+            margin-top: 16px;
+            letter-spacing: 0.3px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+        }
+
+        /* ----- ABOUT ----- */
+        .about-section {
+            margin-bottom: 48px;
+            scroll-margin-top: 80px;
+            background: #ffffff;
+            padding: 32px 36px;
+            border-radius: 16px;
+            border: 1px solid #e2e2e2;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .about-section h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: #111827;
+            letter-spacing: -0.01em;
+            margin-bottom: 22px;
+            border-left: 4px solid #50B854;
+            padding-left: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-section h2 i {
+            color: #6699CC;
+            font-size: 24px;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #1f2937;
+            font-weight: 400;
+            margin-bottom: 18px;
+            max-width: 720px;
+        }
+
+        .about-section a {
+            color: #1f7a24;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted rgba(31, 122, 36, 0.3);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .about-section a:hover {
+            color: #0f4f13;
+            border-bottom-color: #0f4f13;
+        }
+
+        .historical-note-plain {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #1f2937;
+            margin-bottom: 22px;
+            padding: 8px 0 4px;
+            border-bottom: 1px solid #edf2f7;
+            max-width: 720px;
+        }
+
+        .historical-note-plain strong {
+            color: #0b1f0b;
+            font-weight: 600;
+        }
+
+        .historical-note-plain .wiki-link-plain {
+            color: #1f7a24;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 6px;
+            border-bottom: 1px dotted rgba(31, 122, 36, 0.3);
+        }
+
+        .historical-note-plain .wiki-link-plain:hover {
+            border-bottom-color: #0f4f13;
+        }
+
+        .storypedia-or {
+            color: #6b7280;
+            font-weight: 400;
+            margin: 0 8px;
+            font-size: 0.95rem;
+        }
+
+        .storypedia-link {
+            color: #1f7a24;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted rgba(31, 122, 36, 0.3);
+        }
+
+        .storypedia-link:hover {
+            border-bottom-color: #0f4f13;
+        }
+
+        .simple-list {
+            list-style: none;
+            margin: 24px 0 18px;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 32px;
+        }
+
+        .simple-list li {
+            font-size: 0.95rem;
+            color: #1f2937;
+            font-weight: 400;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .simple-list li::before {
+            content: "▹";
+            color: #50B854;
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+        }
+
+        .acceptance-note {
+            background: #eef2ff;
+            padding: 12px 20px;
+            border-radius: 60px;
+            margin-top: 30px;
+            border: 1px solid #cbd5e1;
+            text-align: center;
+            color: #1e3a5f;
+            font-size: 0.95rem;
+        }
+
+        .acceptance-note i {
+            color: #6699CC;
+            margin-right: 8px;
+        }
+
+        /* ----- FOOTER (محسّن للجوال) ----- */
+        footer {
+            width: 100%;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            padding: 30px 20px 16px;
+            font-family: 'Inter', sans-serif;
+            flex-shrink: 0;
+            margin-top: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 24px 16px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 24px;
+        }
+
+        .footer-section h4 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-bottom: 10px;
+            border-left: 2px solid #6b7280;
+            padding-left: 8px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 6px;
+        }
+
+        .footer-section a {
+            color: #6699CC;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 400;
+            transition: color 0.2s;
+            word-break: break-word;
+            display: inline-block;
+            padding: 2px 0;
+        }
+
+        .footer-section a:hover {
+            color: #4a7fb3;
+            text-decoration: underline;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin: 12px 0 14px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #1f2937;
+            font-size: 18px;
+            text-decoration: none;
+            border: 1px solid #e5e7eb;
+            transition: none;
+        }
+
+        .footer-social a:hover {
+            background: #f1f5f9;
+            color: #1f2937;
+            border-color: #e5e7eb;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .footer-social a i {
+            line-height: 1;
+        }
+
+        .footer-support-row {
+            text-align: center;
+            margin-bottom: 10px;
+            padding-top: 2px;
+        }
+
+        .footer-support-link {
+            font-size: 0.8rem;
+            color: #374151;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .footer-support-link:hover {
+            color: #6699CC;
+            border-bottom-color: #6699CC;
+        }
+
+        .footer-copy {
+            text-align: center;
+            font-size: 0.65rem;
+            color: #6b7280;
+            letter-spacing: 0.2px;
+            padding-top: 6px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        /* ===== MEDIA QUERIES للجوال ===== */
+        @media (max-width: 768px) {
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px 14px;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+            }
+
+            .footer-section h4 {
+                font-size: 0.65rem;
+                margin-bottom: 8px;
+                padding-left: 6px;
+            }
+
+            .footer-section a {
+                font-size: 0.72rem;
+            }
+
+            .footer-social {
+                gap: 20px;
+            }
+
+            .footer-social a {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+
+            .footer-support-link {
+                font-size: 0.75rem;
+            }
+
+            footer {
+                padding: 20px 14px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px 12px;
+                padding-bottom: 16px;
+                margin-bottom: 16px;
+            }
+
+            .footer-section h4 {
+                font-size: 0.6rem;
+                margin-bottom: 6px;
+                padding-left: 5px;
+                border-left-width: 2px;
+            }
+
+            .footer-section a {
+                font-size: 0.68rem;
+                padding: 1px 0;
+            }
+
+            .footer-section li {
+                margin-bottom: 4px;
+            }
+
+            .footer-social {
+                gap: 14px;
+                margin: 8px 0 10px;
+            }
+
+            .footer-social a {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+
+            .footer-support-link {
+                font-size: 0.7rem;
+                gap: 4px;
+            }
+
+            .footer-copy {
+                font-size: 0.55rem;
+                padding-top: 4px;
+            }
+
+            footer {
+                padding: 16px 10px 10px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px 8px;
+            }
+
+            .footer-section h4 {
+                font-size: 0.55rem;
+            }
+
+            .footer-section a {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .main-title {
+                font-size: 2.6rem;
+            }
+            .hero-section {
+                padding: 60px 20px 50px;
+                min-height: 240px;
+            }
+            header {
+                padding: 0 18px;
+                height: 60px;
+            }
+            .nav {
+                gap: 16px;
+            }
+            .nav button {
+                font-size: 0.85rem;
+            }
+            .main-content {
+                padding: 20px 16px 40px;
+            }
+            .about-section {
+                padding: 24px 20px;
+            }
+            .historical-note-plain, .about-section p {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.0rem;
+            }
+            .main-tagline {
+                font-size: 0.95rem;
+            }
+            .about-section h2 {
+                font-size: 1.3rem;
+                padding-left: 12px;
+            }
+            .simple-list li {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ===== MODAL STYLES FOR RESTUDIO ACCOUNT ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border-radius: 16px;
+            max-width: 640px;
+            width: 100%;
+            padding: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: modalFade 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: scale(0.95) translateY(-10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #f3f4f6;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #374151;
+            transition: background 0.2s;
+            z-index: 5;
+        }
+
+        .modal-close:hover {
+            background: #e5e7eb;
+        }
+
+        .account-banner {
+            width: 100%;
+            height: 160px;
+            border-radius: 12px;
+            background-size: cover;
+            background-position: center;
+            background-color: #e5e7eb;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* نمط الخلفية البديل عندما لا توجد صورة banner */
+        .account-banner.no-banner {
+            --s: 80px; /* حجم أصغر قليلاً ليتناسب مع العرض */
+            --_g: #dc9d37 25%, #fed450 0 50%, #0000 0;
+            --_l1: #fff 0 1px, #0000 0 calc(25% - 1px), #fff 0 25%;
+            --_l2: #fff 0 1px, #0000 0 calc(50% - 1px), #fff 0 50%;
+            background: repeating-linear-gradient(45deg, var(--_l1)),
+                repeating-linear-gradient(-45deg, var(--_l1)),
+                repeating-linear-gradient(0deg, var(--_l2)),
+                repeating-linear-gradient(90deg, var(--_l2)),
+                conic-gradient(from 135deg at 25% 75%, var(--_g)),
+                conic-gradient(from 225deg at 25% 25%, var(--_g)),
+                conic-gradient(from 45deg at 75% 75%, var(--_g)),
+                conic-gradient(from -45deg at 75% 25%, var(--_g)),
+                repeating-conic-gradient(#125c65 0 45deg, #bc4a33 0 90deg);
+            background-size: var(--s) var(--s);
+        }
+
+        .account-avatar-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .account-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .account-avatar i {
+            font-size: 2.5rem;
+            color: #9ca3af;
+        }
+
+        .account-info h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .account-info .account-type {
+            font-size: 0.85rem;
+            color: #50B854;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .account-info .account-id {
+            font-size: 0.85rem;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .account-details {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+            color: #374151;
+        }
+
+        .account-details p {
+            margin-bottom: 8px;
+        }
+
+        .account-details strong {
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .account-empty {
+            text-align: center;
+            padding: 30px 0;
+            color: #6b7280;
+        }
+
+        /* أزرار المودال الجديدة */
+        .modal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+            justify-content: center;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
+        }
+
+        .modal-btn {
+            background: #50B854;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 24px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .modal-btn:hover {
+            background: #3d9e41;
+        }
+
+        .modal-btn.danger {
+            background: #e74c3c;
+        }
+
+        .modal-btn.danger:hover {
+            background: #c0392b;
+        }
+
+        /* ===== MAP CONTAINER STYLES ===== */
+        .map-section {
+            margin-top: 16px;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 16px;
+        }
+
+        .map-section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .map-section-label i {
+            color: #50B854;
+        }
+
+        .map-container {
+            height: 220px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            position: relative;
+            background: #f9fafb;
+        }
+
+        .map-container .maplibregl-map {
+            border-radius: 10px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .map-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background: #f9fafb;
+            color: #6b7280;
+            font-size: 0.85rem;
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
+            padding: 16px;
+        }
+
+        .map-fallback i {
+            font-size: 2rem;
+            color: #d1d5db;
+        }
+
+        /* Custom marker style for MapLibre */
+        .custom-marker {
+            width: 18px;
+            height: 18px;
+            background: #b85050;
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .custom-marker:hover {
+            transform: scale(1.3);
+        }
+
+        /* MapLibre popup styling */
+        .maplibregl-popup-content {
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #1f2937;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .maplibregl-popup-close-button {
+            font-size: 1.2rem;
+            padding: 4px 8px;
+            color: #6b7280;
+        }
+
+        .maplibregl-ctrl-attrib {
+            font-size: 0.65rem;
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(4px);
+            padding: 2px 6px;
+            border-radius: 4px 0 0 0;
+        }
+
+        .maplibregl-ctrl-bottom-right {
+            bottom: 4px;
+            right: 4px;
+        }
+
+        .maplibregl-ctrl-group {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        /* For mobile responsiveness of nav button */
+        @media (max-width: 600px) {
+            .btn-register-card .full-text {
+                display: none;
+            }
+            .btn-register-card .short-text {
+                display: inline;
+            }
+            .modal-content {
+                padding: 16px;
+                max-width: 95vw;
+            }
+            .map-container {
+                height: 180px;
+            }
+            .account-banner {
+                height: 120px;
+            }
+            .account-avatar {
+                width: 60px;
+                height: 60px;
+            }
+            .account-info h3 {
+                font-size: 1.2rem;
+            }
+            .modal-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .modal-btn {
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .btn-register-card .short-text {
+                display: none;
+            }
+        }
+
+        /* تعديلات إضافية للأفاتار في شريط التنقل */
+        .nav-avatar .fallback-icon {
+            font-size: 1.4rem;
+            color: #e5e7eb;
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <div class="top-logo">
-    <img src="https://i.postimg.cc/8cFpdJWB/swrh-restudio.png" alt="Restudio">
-  </div>
-  <div class="nav">
-    <button onclick="scrollToHero()">
-      <i class="fas fa-home"></i> Home
-    </button>
-    <button onclick="scrollToAbout()">
-      <i class="fas fa-heart"></i> About
-    </button>
-  </div>
+    <div class="top-logo">
+        <img src="https://i.postimg.cc/8cFpdJWB/swrh-restudio.png" alt="Restudio">
+    </div>
+    <div class="nav">
+        <button onclick="scrollToHero()">
+            <i class="fas fa-home"></i> Home
+        </button>
+        <button onclick="scrollToAbout()">
+            <i class="fas fa-heart"></i> About
+        </button>
+
+        <!-- زر التسجيل (تم إزالة HOVER بالكامل) -->
+        <button id="registerBtn" class="btn-register-card" onclick="triggerRestudioCard()">
+            <i class="fas fa-id-card"></i>
+            <span class="full-text">Register via RestudioID</span>
+            <span class="short-text">Register via RestudioID</span>
+        </button>
+
+        <!-- الأفاتار الدائري (مخفي في البداية) -->
+        <div id="avatarNav" class="nav-avatar" style="display: none;" onclick="showProfileFromStorage()">
+            <!-- سيتم ملؤه بواسطة الجافاسكريبت -->
+        </div>
+    </div>
 </header>
 
+<!-- Hidden file input for RestudioID Card -->
+<input type="file" id="restudioCardFileInput" accept=".json,application/json" style="display:none;" />
+
+<!-- Restudio Account Modal -->
+<div id="restudioAccountModal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeRestudioModal()">&times;</button>
+        <div id="restudioAccountDetails">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+    </div>
+</div>
+
 <div class="main-content">
-  <div class="hero-section" id="heroSection">
-    <div class="main-title">We make beautiful <span>experiences</span> 💚</div>
-    <div class="main-tagline">crafting experiences · building tools</div>
-  </div>
-
-  <div class="about-section" id="aboutSection">
-    <h2><i class="fas fa-info-circle"></i> about restudio</h2>
-    <p>Restudio was founded in 1948, 7 May. We are passionate about development and creating useful tools for developers and creators.</p>
-
-    <div class="historical-note-plain">
-      <strong>Restudio's roots go back to 1948</strong> (From a fighter in the 1948 Nakba to a nurse to a son)
-      <a href="https://en.wikipedia.org/wiki/Nakba" class="wiki-link-plain" target="_blank" rel="noopener noreferrer">Wikipedia 📖</a>
-      <span class="storypedia-or">OR</span>
-      <a href="https://restudiosoftwarelaboratories.github.io/Restudio-Storypedia/" class="storypedia-link" target="_blank" rel="noopener noreferrer">Restudio Storypedia</a>
+    <div class="hero-section" id="heroSection">
+        <div class="main-title">We make beautiful <span>experiences</span> 💚</div>
+        <div class="main-tagline">crafting experiences · building tools</div>
     </div>
 
-    <p>Our main projects include <a href="https://restudio-games.itch.io/pixmancer" target="_blank">Pixmancer</a>, a pixel art companion tool, and <a href="https://restudio-games.itch.io/wetbox-game-engine" target="_blank">Wetbox Game Engine</a>, a lightweight framework for indie developers.</p>
-    <p>We also build tools like Restudio Script Editor and Motion Studio X to help streamline creative workflows. Everything we make is driven by curiosity and the desire to make game development more accessible.</p>
+    <div class="about-section" id="aboutSection">
+        <h2><i class="fas fa-info-circle"></i> about restudio</h2>
+        <p>Restudio was founded in 1948, 7 May. We are passionate about development and creating useful tools for developers and creators.</p>
 
-    <ul class="simple-list">
-      <li>Wetbox framework</li>
-      <li>Pixmancer</li>
-      <li>Restudio Script Editor</li>
-      <li>Motion Studio X (initiative)</li>
-    </ul>
+        <div class="historical-note-plain">
+            <strong>Restudio's roots go back to 1948</strong> (From a fighter in the 1948 Nakba to a nurse to a son)
+            <a href="https://en.wikipedia.org/wiki/Nakba" class="wiki-link-plain" target="_blank" rel="noopener noreferrer">Wikipedia 📖</a>
+            <span class="storypedia-or">OR</span>
+            <a href="https://restudiosoftwarelaboratories.github.io/Restudio-Storypedia/" class="storypedia-link" target="_blank" rel="noopener noreferrer">Restudio Storypedia</a>
+        </div>
 
-    <p style="margin-top: 20px;">Join us on this journey — explore our tools and projects.</p>
+        <p>Our main projects include <a href="https://restudio-games.itch.io/pixmancer" target="_blank">Pixmancer</a>, a pixel art companion tool, and <a href="https://restudio-games.itch.io/wetbox-game-engine" target="_blank">Wetbox Game Engine</a>, a lightweight framework for indie developers.</p>
+        <p>We also build tools like Restudio Script Editor and Motion Studio X to help streamline creative workflows. Everything we make is driven by curiosity and the desire to make game development more accessible.</p>
 
-    <div class="acceptance-note">
-      <i class="fas fa-flask"></i> Restudio — building tools for creators
+        <ul class="simple-list">
+            <li>Wetbox framework</li>
+            <li>Pixmancer</li>
+            <li>Restudio Script Editor</li>
+            <li>Motion Studio X (initiative)</li>
+        </ul>
+
+        <p style="margin-top: 20px;">Join us on this journey — explore our tools and projects.</p>
+
+        <div class="acceptance-note">
+            <i class="fas fa-flask"></i> Restudio — building tools for creators
+        </div>
     </div>
-  </div>
 </div>
 
 <footer>
-  <div class="footer-main">
-    <div class="footer-section">
-      <h4>Restudio JaneOffice</h4>
-      <ul>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Presentation/" target="_blank">Restudio Presentation</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Tables/" target="_blank">Restudio Tables</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Documents/" target="_blank">Restudio Documents</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Forms/" target="_blank">Restudio Forms</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Math/" target="_blank">Restudio Math</a></li>
-      </ul>
+    <div class="footer-main">
+        <div class="footer-section">
+            <h4>Restudio JaneOffice</h4>
+            <ul>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Presentation/" target="_blank">Restudio Presentation</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Tables/" target="_blank">Restudio Tables</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Documents/" target="_blank">Restudio Documents</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Forms/" target="_blank">Restudio Forms</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Math/" target="_blank">Restudio Math</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Bookshelf</h4>
+            <ul>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Bookshelf/" target="_blank">Restudio Bookshelf</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Trends</h4>
+            <ul>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Trends/" target="_blank">Restudio Trends</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="https://restudio-lab.itch.io/wetbox-game-engine" target="_blank">Wetbox framework</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/restudio-script-editor/" target="_blank">Restudio Script Editor</a></li>
+                <li><a href="https://restudio-lab.itch.io/pixmancer" target="_blank">Pixmancer</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/MSX-WEBSITE/" target="_blank">Motion studio X (initiative)</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Other</h4>
+            <ul>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Contacts/" target="_blank">Restudio Contacts</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Translate/" target="_blank">Restudio Translate</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Images/" target="_blank">Restudio Images</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Calculator/" target="_blank">Restudio Calculator</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Calendar/" target="_blank">Restudio Calendar</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-To-do/" target="_blank">Restudio To Do</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-App-Center/" target="_blank">Restudio App Center</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Internet/" target="_blank">Restudio Internet</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Restudio Branches</h4>
+            <ul>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Developers/" target="_blank">Restudio Developers</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Creative-Website/" target="_blank">Restudio Creative</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Artificial-Intelligence/" target="_blank">Restudio artificial intelligence</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Education/" target="_blank">Restudio Education</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Terms-of-Service-Privacy/" target="_blank">Terms of Service</a></li>
+                <li><a href="https://restudiosoftwarelaboratories.github.io/Terms-of-Service-Privacy/" target="_blank">Privacy Policy</a></li>
+            </ul>
+        </div>
     </div>
 
-    <div class="footer-section">
-      <h4>Bookshelf</h4>
-      <ul>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Bookshelf/" target="_blank">Restudio Bookshelf</a></li>
-      </ul>
+    <div class="footer-social">
+        <a href="https://github.com/RestudioSoftwareLaboratories" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://x.com/RESTUDIO_GAMES" target="_blank" aria-label="X (Twitter)">
+            <i class="fab fa-x-twitter"></i>
+        </a>
     </div>
 
-    <div class="footer-section">
-      <h4>Trends</h4>
-      <ul>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Trends/" target="_blank">Restudio Trends</a></li>
-      </ul>
+    <div class="footer-support-row">
+        <a href="mailto:restudiosupport@gmail.com" class="footer-support-link">
+            <i class="fas fa-envelope"></i> need help? Restudio Support
+        </a>
     </div>
 
-    <div class="footer-section">
-      <h4>Products</h4>
-      <ul>
-        <li><a href="https://restudio-lab.itch.io/wetbox-game-engine" target="_blank">Wetbox framework</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/restudio-script-editor/" target="_blank">Restudio Script Editor</a></li>
-        <li><a href="https://restudio-lab.itch.io/pixmancer" target="_blank">Pixmancer</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/MSX-WEBSITE/" target="_blank">Motion studio X (initiative)</a></li>
-      </ul>
+    <div class="footer-copy">
+        © 2026 Restudio software laboratories. All rights reserved.
     </div>
-
-    <div class="footer-section">
-      <h4>Other</h4>
-      <ul>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Contacts/" target="_blank">Restudio Contacts</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Translate/" target="_blank">Restudio Translate</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Images/" target="_blank">Restudio Images</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Calculator/" target="_blank">Restudio Calculator</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Calendar/" target="_blank">Restudio Calendar</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-To-do/" target="_blank">Restudio To Do</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-App-Center/" target="_blank">Restudio App Center</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Internet/" target="_blank">Restudio Internet</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section">
-      <h4>Restudio Branches</h4>
-      <ul>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Developers/" target="_blank">Restudio Developers</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Creative-Website/" target="_blank">Restudio Creative</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Artificial-Intelligence/" target="_blank">Restudio artificial intelligence</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Restudio-Education/" target="_blank">Restudio Education</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section">
-      <h4>Legal</h4>
-      <ul>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Terms-of-Service-Privacy/" target="_blank">Terms of Service</a></li>
-        <li><a href="https://restudiosoftwarelaboratories.github.io/Terms-of-Service-Privacy/" target="_blank">Privacy Policy</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-social">
-    <a href="https://github.com/RestudioSoftwareLaboratories" target="_blank" aria-label="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://x.com/RESTUDIO_GAMES" target="_blank" aria-label="X (Twitter)">
-      <i class="fab fa-x-twitter"></i>
-    </a>
-  </div>
-
-  <div class="footer-support-row">
-    <a href="mailto:restudiosupport@gmail.com" class="footer-support-link">
-      <i class="fas fa-envelope"></i> need help? Restudio Support
-    </a>
-  </div>
-
-  <div class="footer-copy">
-    © 2026 Restudio software laboratories. All rights reserved.
-  </div>
 </footer>
 
 <script>
-  function scrollToElementWithOffset(element, offset = 70) {
-    if (!element) return;
-    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-    const offsetPosition = elementPosition - offset;
-    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-  }
-
-  function scrollToHero() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function scrollToAbout() {
-    const aboutSection = document.getElementById('aboutSection');
-    if (aboutSection) scrollToElementWithOffset(aboutSection, 70);
-  }
-
-  window.addEventListener('load', () => {
-    if (window.location.hash === '#aboutSection') {
-      setTimeout(() => scrollToAbout(), 100);
-    } else if (window.location.hash === '#heroSection') {
-      setTimeout(() => scrollToHero(), 100);
+    // ===== Scroll functions =====
+    function scrollToElementWithOffset(element, offset = 70) {
+        if (!element) return;
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - offset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
-  });
+
+    function scrollToHero() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToAbout() {
+        const aboutSection = document.getElementById('aboutSection');
+        if (aboutSection) scrollToElementWithOffset(aboutSection, 70);
+    }
+
+    window.addEventListener('load', () => {
+        if (window.location.hash === '#aboutSection') {
+            setTimeout(() => scrollToAbout(), 100);
+        } else if (window.location.hash === '#heroSection') {
+            setTimeout(() => scrollToHero(), 100);
+        }
+        loadProfileFromStorage();
+    });
+
+    // ===== RestudioID Card Functions =====
+    let currentMapInstance = null;
+    let currentProfileData = null;
+
+    const registerBtn = document.getElementById('registerBtn');
+    const avatarNav = document.getElementById('avatarNav');
+    const fileInput = document.getElementById('restudioCardFileInput');
+    const modalOverlay = document.getElementById('restudioAccountModal');
+    const modalDetails = document.getElementById('restudioAccountDetails');
+
+    function triggerRestudioCard() {
+        fileInput.click();
+    }
+
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            try {
+                const data = JSON.parse(event.target.result);
+                if (data && data.profile) {
+                    displayRestudioAccount(data);
+                    saveProfileAndUpdateUI(data);
+                } else {
+                    alert('Invalid RestudioID Card format. Missing "profile" object.');
+                }
+            } catch (err) {
+                alert('Invalid JSON file. Please select a valid RestudioID Card file.');
+            } finally {
+                e.target.value = '';
+            }
+        };
+        reader.readAsText(file);
+    });
+
+    function saveProfileAndUpdateUI(data) {
+        try {
+            localStorage.setItem('restudioProfile', JSON.stringify(data));
+            currentProfileData = data;
+            updateUIWithProfile(data);
+        } catch (e) {
+            console.warn('Could not save to localStorage:', e);
+        }
+    }
+
+    function updateUIWithProfile(data) {
+        const profile = data.profile;
+        if (!profile) return;
+
+        registerBtn.style.display = 'none';
+        avatarNav.style.display = 'flex';
+
+        const avatarBase64 = profile.avatar_base64 || null;
+        const username = profile.username || 'User';
+
+        avatarNav.innerHTML = '';
+
+        if (avatarBase64) {
+            const img = document.createElement('img');
+            img.src = avatarBase64;
+            img.alt = username;
+            avatarNav.appendChild(img);
+        } else {
+            const fallback = document.createElement('span');
+            fallback.className = 'fallback-icon';
+            fallback.textContent = username.charAt(0).toUpperCase() || '👤';
+            avatarNav.appendChild(fallback);
+        }
+        avatarNav.onclick = showProfileFromStorage;
+    }
+
+    function loadProfileFromStorage() {
+        try {
+            const stored = localStorage.getItem('restudioProfile');
+            if (stored) {
+                const data = JSON.parse(stored);
+                if (data && data.profile) {
+                    currentProfileData = data;
+                    updateUIWithProfile(data);
+                } else {
+                    localStorage.removeItem('restudioProfile');
+                }
+            }
+        } catch (e) {
+            localStorage.removeItem('restudioProfile');
+        }
+    }
+
+    function showProfileFromStorage() {
+        if (currentProfileData) {
+            displayRestudioAccount(currentProfileData);
+        } else {
+            try {
+                const stored = localStorage.getItem('restudioProfile');
+                if (stored) {
+                    const data = JSON.parse(stored);
+                    if (data && data.profile) {
+                        currentProfileData = data;
+                        displayRestudioAccount(data);
+                        return;
+                    }
+                }
+            } catch (e) {}
+            alert('No profile data found. Please register via RestudioID Card.');
+        }
+    }
+
+    // ===== دالة لتنزيل البطاقة (Take out your card) =====
+    function downloadCard() {
+        if (!currentProfileData) {
+            alert('No card data available.');
+            return;
+        }
+        const jsonStr = JSON.stringify(currentProfileData, null, 2);
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `RestudioID_${currentProfileData.profile.user_handle || 'card'}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    // ===== دالة تسجيل الخروج (LOG OUT) =====
+    function logout() {
+        if (confirm('Are you sure you want to log out? Your card data will be removed from this browser.')) {
+            localStorage.removeItem('restudioProfile');
+            currentProfileData = null;
+            registerBtn.style.display = 'flex';
+            avatarNav.style.display = 'none';
+            avatarNav.innerHTML = '';
+            closeRestudioModal();
+        }
+    }
+
+    function getAccountTypeIcon(type) {
+        const lower = type.toLowerCase();
+        if (lower.includes('developer')) return 'fas fa-code';
+        if (lower.includes('publisher')) return 'fas fa-rocket';
+        if (lower.includes('official')) return 'fas fa-check-circle';
+        if (lower.includes('study')) return 'fas fa-school';
+        return 'fas fa-user';
+    }
+
+    function displayRestudioAccount(data) {
+        if (!data || !data.profile) {
+            modalDetails.innerHTML = '<div class="account-empty"><i class="fas fa-exclamation-triangle" style="font-size:2rem; color:#f59e0b;"></i><p style="margin-top:10px;">Invalid RestudioID Card format.</p></div>';
+            modalOverlay.classList.add('active');
+            return;
+        }
+
+        const profile = data.profile;
+        const username = profile.username || 'Unknown User';
+        const handle = profile.user_handle || 'No ID';
+        const accountType = profile.account_type || 'Unknown Type';
+        const avatarBase64 = profile.avatar_base64 || null;
+        const bannerBase64 = profile.banner_base64 || null;
+        const hasLocation = profile.location &&
+            profile.location.latitude !== undefined &&
+            profile.location.longitude !== undefined &&
+            profile.location.latitude !== null &&
+            profile.location.longitude !== null &&
+            !isNaN(profile.location.latitude) &&
+            !isNaN(profile.location.longitude);
+
+        let bannerStyle = '';
+        let bannerClass = 'account-banner';
+        if (bannerBase64) {
+            bannerStyle = `style="background-image: url('${bannerBase64}')"`;
+        } else {
+            bannerClass += ' no-banner';
+        }
+
+        let avatarHtml = '';
+        if (avatarBase64) {
+            avatarHtml = `<div class="account-avatar" style="background-image: url('${avatarBase64}')"></div>`;
+        } else {
+            avatarHtml = `<div class="account-avatar"><i class="fas fa-user-circle"></i></div>`;
+        }
+
+        const accountTypeIcon = getAccountTypeIcon(accountType);
+
+        let locationSection = '';
+        if (hasLocation) {
+            const lat = profile.location.latitude;
+            const lng = profile.location.longitude;
+            locationSection = `
+                <div class="map-section">
+                    <div class="map-section-label">
+                        <i class="fas fa-map-marker-alt"></i> Location
+                    </div>
+                    <div class="map-container" id="accountLocationMap" data-lat="${lat}" data-lng="${lng}"></div>
+                </div>
+            `;
+        } else {
+            locationSection = `
+                <div class="map-section">
+                    <div class="map-section-label">
+                        <i class="fas fa-map-marker-alt"></i> Location
+                    </div>
+                    <div class="map-container">
+                        <div class="map-fallback">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>No location data available</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        modalDetails.innerHTML = `
+            <div class="${bannerClass}" ${bannerStyle}></div>
+            <div class="account-avatar-wrapper">
+                ${avatarHtml}
+                <div class="account-info">
+                    <h3>${username}</h3>
+                    <div class="account-type"><i class="${accountTypeIcon}"></i> ${accountType}</div>
+                    <div class="account-id"><i class="fas fa-id-badge"></i> ID: ${handle}</div>
+                </div>
+            </div>
+            <div class="account-details">
+                <p><strong>Username:</strong> ${username}</p>
+                <p><strong>Handle:</strong> @${handle}</p>
+                <p><strong>Account Type:</strong> ${accountType}</p>
+                ${profile.age ? `<p><strong>Age:</strong> ${profile.age}</p>` : ''}
+                ${profile.bio_text ? `<p><strong>Bio:</strong> ${profile.bio_text}</p>` : ''}
+            </div>
+            ${locationSection}
+            <div class="modal-actions">
+                <button class="modal-btn" onclick="downloadCard()">
+                    <i class="fas fa-download"></i> Take out your card
+                </button>
+                <button class="modal-btn danger" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> LOG OUT
+                </button>
+            </div>
+        `;
+
+        modalOverlay.classList.add('active');
+
+        if (hasLocation) {
+            const lat = profile.location.latitude;
+            const lng = profile.location.longitude;
+            setTimeout(() => {
+                initializeLocationMap(lat, lng);
+            }, 150);
+        }
+    }
+
+    function initializeLocationMap(lat, lng) {
+        if (currentMapInstance) {
+            try { currentMapInstance.remove(); } catch (e) {}
+            currentMapInstance = null;
+        }
+
+        const mapContainer = document.getElementById('accountLocationMap');
+        if (!mapContainer) return;
+
+        try {
+            const map = new maplibregl.Map({
+                container: 'accountLocationMap',
+                style: {
+                    version: 8,
+                    sources: {
+                        osm: {
+                            type: 'raster',
+                            tiles: [
+                                'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                                'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                                'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                            ],
+                            tileSize: 256,
+                            attribution: '© OpenStreetMap contributors',
+                            maxzoom: 19
+                        }
+                    },
+                    layers: [{
+                        id: 'osm-layer',
+                        type: 'raster',
+                        source: 'osm',
+                        minzoom: 0,
+                        maxzoom: 19
+                    }]
+                },
+                center: [lng, lat],
+                zoom: 14,
+                attributionControl: { compact: true }
+            });
+
+            map.addControl(new maplibregl.NavigationControl({ showCompass: true, showZoom: true }), 'top-right');
+
+            const markerEl = document.createElement('div');
+            markerEl.className = 'custom-marker';
+            markerEl.setAttribute('aria-label', 'User location');
+            new maplibregl.Marker({ element: markerEl, anchor: 'center' })
+                .setLngLat([lng, lat])
+                .addTo(map);
+
+            new maplibregl.Popup({ offset: 18, closeButton: false, closeOnClick: false, maxWidth: '220px' })
+                .setLngLat([lng, lat])
+                .setHTML(`<div style="text-align:center;"><strong>📍 User Location</strong><br><span>${lat.toFixed(6)}, ${lng.toFixed(6)}</span></div>`)
+                .addTo(map);
+
+            currentMapInstance = map;
+
+            setTimeout(() => {
+                if (currentMapInstance === map) map.resize();
+            }, 300);
+
+        } catch (error) {
+            console.warn('MapLibre failed, using iframe fallback:', error);
+            const bbox = [lng - 0.01, lat - 0.01, lng + 0.01, lat + 0.01].join('%2C');
+            mapContainer.innerHTML = `
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat}%2C${lng}" 
+                    style="border:0; border-radius:10px; width:100%; height:100%;"
+                    loading="lazy"
+                ></iframe>
+            `;
+        }
+    }
+
+    function closeRestudioModal() {
+        if (currentMapInstance) {
+            try { currentMapInstance.remove(); } catch (e) {}
+            currentMapInstance = null;
+        }
+        modalOverlay.classList.remove('active');
+    }
+
+    modalOverlay.addEventListener('click', function(e) {
+        if (e.target === this) closeRestudioModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeRestudioModal();
+    });
+
+    window.addEventListener('resize', function() {
+        if (currentMapInstance) {
+            try { currentMapInstance.resize(); } catch (e) {}
+        }
+    });
 </script>
 </body>
 </html>
